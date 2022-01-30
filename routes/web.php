@@ -1,5 +1,7 @@
 <?php
 
+
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +13,5 @@
 |
 */
 
-Route::get('/', function () 
-{
-  Route::get('/found', 'foundController@index');
-});
+Route::get('/', 'ProductController@index');
+Route::get('/products/{product}', 'ProductController@display');

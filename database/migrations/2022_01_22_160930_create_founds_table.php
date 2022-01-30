@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFoundsTable extends Migration
+class CreateProductTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFoundsTable extends Migration
      */
     public function up()
     {
-        Schema::create('founds', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateFoundsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('founds');
+        Schema::dropIfExists('products');
     }
 }
