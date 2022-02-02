@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -7,7 +8,10 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>FOUND</h1>
+      <h1>FOUND</h1>
+　　　　　<div class=create>
+              <a href='/products/create'><h2>投稿</h2></a>
+        　</div>
           <div class=product>
             @foreach ($products as $product)
             -----------------------------------------------------

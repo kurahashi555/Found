@@ -13,5 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'ProductController@index');
-Route::get('/products/{product}', 'ProductController@display');
+Route::get('/','ProductController@index');
+Route::get('/products/create','ProductController@create');
+Route::get('/products/{product}','ProductController@display');
+Route::post('/store','ProductController@store');
