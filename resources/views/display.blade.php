@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Posts</title>
+        <title>found</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="/css/app.css">
@@ -15,7 +15,9 @@
                <h2 class='name'>{{ $product->name }}</h2>
                <h4 class='photo'>{{ $product->photo}}</h4>
                <p class='body'>{{ $product->body }}</p>
+               <p class='category'>{{ $product->category->name }}</p>
+               <p class="edit">[<a href="/products/{{ $product->id }}/edit">edit</a>]</p>
           </div>
-      <div class='back'>[<a href='/'>back</a>]</div>
+      <div class='back'>[<a href='/top'>back</a>]</div>
     </body>
 </html>
