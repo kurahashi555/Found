@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+@extends('layouts.app')　　　　　　　　　　　　　　　　
 
+@section('content')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
       <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -16,6 +18,7 @@
             <input type="text" name="keyword">
             <input type="submit"value='検索'>
         </form>
-          <div class='back'>[<a href='/top'>back</a>]</div>
+          <div class='back'>[<a href='/'>back</a>]</div>
     </body>
 </html>
+@endsection

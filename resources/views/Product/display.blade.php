@@ -1,5 +1,7 @@
 <!DOCTYPE HTML>
+@extends('layouts.app')　　　　　　　　　　　　　　　　
 
+@section('content')
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -13,11 +15,13 @@
         <h1>FOUND</h1>
           <div>
                <h2 class='name'>{{ $product->name }}</h2>
-               <h4 class='photo'>{{ $product->photo}}</h4>
-               <p class='body'>{{ $product->body }}</p>
-               <p class='category'>{{ $product->category->name }}</p>
+               <small>{{ $product->user->name }}</small>
+               <p class='photo'>{{ $product->photo}}</p>
+               <h5 class='body'>{{ $product->body }}</h5>
+               <h6 class='category'>{{ $product->category->name }}</h6>
                <p class="edit">[<a href="/products/{{ $product->id }}/edit">edit</a>]</p>
           </div>
-      <div class='back'>[<a href='/top'>back</a>]</div>
+      <div class='back'>[<a href='/'>back</a>]</div>
     </body>
 </html>
+@endsection

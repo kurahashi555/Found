@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+@extends('layouts.app')　　　　　　　　　　　　　　　　
 
+@section('content')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -14,9 +16,9 @@
             @csrf
             @method('PUT')
                 <h2>商品名</h2>
-                   <input type='text' name='product[name]' value="{{ $product->name }}">
+                   <input type='text' name='product[name]' value="{{ $product->name }}"autocomplete="off">//autocompleteは自動入力候補表示機能
                 <h2>画像</h2>
-                   <input type='text' name='product[photo]' value="{{ $product->photo }}">
+                   <input type='text' name='product[photo]' value="{{ $product->photo }}"autocomplete="off">
                 <h2>評価コメント</h2>
                 　 <textarea name='product[body]'>{{ $product->body }}</textarea>
                 <h2>カテゴリー選択</h2>
@@ -44,3 +46,4 @@
         </script>
     </body>
 </html>
+@endsection

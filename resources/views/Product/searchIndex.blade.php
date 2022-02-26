@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+@extends('layouts.app')　　　　　　　　　　　　　　　　
 
+@section('content')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -13,15 +15,18 @@
 　　　　　<div>
 　　　　　　　  <a href='/products/create'><h2>投稿</h2></a>
           　　    <a href='/products/search'><h2>検索</h2></a>
-          　　    <div class='back'>[<a href='/top'>back</a>]</div>
+          　　    <div class='back'>[<a href='/'>back</a>]</div>
         　</div>
         　<div class=searchresult>
         　@if(isset($products))
   　　　　 　　　@foreach($products as $product)
      　　　　　          <p>-----------------------------------------------------</p>
                 　  <a href='/products/{{ $product->id }}'><h2 class='name'>{{ $product->name }}</h2></a>
-                　  <h4 class='photo'>{{ $product->photo }}</h4>
-                　  <p class='body'>{{ $product->body }}</p>
+                　  <small>{{ $product->user->name }}</small>
+                　  <p class='photo'>{{ $product->photo }}</p>
+                　  <h5 class='body'>{{ $product->body }}</h5>
+                　  <h6 class='category'>{{ $product->category->name }}</h6>
+                　  <button><a href="/products/{{ $product->id }}/edit">edit</a></button>
   　　　　　　@endforeach
 　　　　　@endif
 　　　　　
@@ -31,3 +36,4 @@
           </div>
     </body>
 </html>
+@endsection
