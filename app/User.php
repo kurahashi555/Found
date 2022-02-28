@@ -41,12 +41,12 @@ class User extends Authenticatable
     
     public function getOwnPaginateByLimit(int $limit_count = 5)
     {
-      return $this::with('products')->find(Auth::id())->products()->orderBy('updated_at', 'DESC')->paginate($limit_count);
+      return $this::with('products')->find(Auth::id())->products()->orderBy('created_at', 'DESC')->paginate($limit_count);
     }/**find(Auth::id())で現在ログインしているユーザーと同じidのUserインスタンスを取り出している。
       *リレーションで定義したproducts()を使って、取り出したUserインスタンスに関連する投稿の情報を取り出す。
       */
     public function products()
     {
-      return $this->hasMany('App/Product'); //productに対するリレーション
+      return $this->hasMany('App\Product'); //productに対するリレーション
     }
 }

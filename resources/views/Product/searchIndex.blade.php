@@ -15,7 +15,7 @@
 　　　　　<div>
 　　　　　　　  <a href='/products/create'><h2>投稿</h2></a>
           　　    <a href='/products/search'><h2>検索</h2></a>
-          　　    <div class='back'>[<a href='/'>back</a>]</div>
+          　　    <div class='back'>[<a href='/'>←Topページ</a>]</div>
         　</div>
         　<div class=searchresult>
         　@if(isset($products))

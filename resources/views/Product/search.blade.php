@@ -18,7 +18,7 @@
             <input type="text" name="keyword">
             <input type="submit"value='検索'>
         </form>
-          <div class='back'>[<a href='/'>back</a>]</div>
+          <div class='back'>[<a href='/'>←Topページ</a>]</div>
     </body>
 </html>
 @endsection

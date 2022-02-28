@@ -11,7 +11,7 @@
     </head>
     <body>
       <h1>FOUND</h1>
-      <h4>ユーザー名：{{Auth::user()->name}}</4>
+      <h4>ユーザー名：{{Auth::user()->name}}</h4>
           <div>
 　　         <h2><a href='/products/create'>投稿</a></h2>
              <h2><a href='/products/search'>検索</a></h2>

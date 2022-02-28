@@ -11,11 +11,12 @@
     </head>
     <body>
       <h1>FOUND</h1>
+      <h3>ユーザー：{{Auth::user()->name}}の投稿一覧</h3>
+      <div class='back'>[<a href='/'>←Topページ</a>]</div>
          <div class="own_products">
              @foreach($own_products as $products)
                     <p>-----------------------------------------------------</p>
                 　  <a href='/products/{{ $products->id }}'><h2 class='name'>{{ $products->name }}</h2></a>
-                　  <small>{{ $products->user->name }}</small>
                 　  <p class='photo'>{{ $products->photo }}</p>
                 　  <h5 class='body'>{{ $products->body }}</h5>
                 　 <h6 class='category'>{{ $products->category->id}}</h6>

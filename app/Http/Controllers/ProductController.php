@@ -76,7 +76,7 @@ class ProductController extends Controller
      $input_product += ['user_id' => $request->user()->id];
      $product->fill($input_product)->save();
      
-     return redirect('/products/' . $product->id);
+     return redirect('/');
     }
     
     public function delete(Product $product)

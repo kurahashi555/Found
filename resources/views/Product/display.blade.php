@@ -21,7 +21,7 @@
                <h6 class='category'>{{ $product->category->name }}</h6>
                <p class="edit">[<a href="/products/{{ $product->id }}/edit">edit</a>]</p>
           </div>
-      <div class='back'>[<a href='/'>back</a>]</div>
+        <div class='back'>[<a href='/'>←Topページ</a>]</div>
     </body>
 </html>
 @endsection
