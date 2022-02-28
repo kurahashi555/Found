@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+@extends('layouts.app')
 
+@section('content')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -9,24 +11,25 @@
     </head>
     <body>
       <h1>FOUND</h1>
-      {{Auth::user()->name}}
-　　　　　<div>
-　　　　　  　　<a href='/'><h2>ログイン</h2></a>
-　　　　　      <a href='/products/create'><h2>投稿</h2></a>
-          　　    <a href='/products/search'><h2>検索</h2></a>
-        　</div>
+      <h4>ユーザー名：{{Auth::user()->name}}</h4>
+          <div>
+　　         <h2><a href='/products/create'>投稿</a></h2>
+             <h2><a href='/products/search'>検索</a></h2>
+          </div>
           <div class=product>
             @foreach ($product as $products)
                     <p>-----------------------------------------------------</p>
                 　  <a href='/products/{{ $products->id }}'><h2 class='name'>{{ $products->name }}</h2></a>
-                　  <h4 class='photo'>{{ $products->photo }}</h4>
-                　  <p class='body'>{{ $products->body }}</p>
-                　
+                　  <small><a href='/user'>{{ $products->user->name }}</a></small>
+                　  <p class='photo'>{{ $products->photo }}</p>
+                　  <h5 class='body'>{{ $products->body }}</h5>
+                　 <h6 class='category'>{{ $products->category->id}}</h6>
                 　 <button><a href="/products/{{ $products->id }}/edit">edit</a></button>
-            @endforeach
+             @endforeach
           </div>
           <div class='paginate'>
-              {{ $product->links() }}
-          </div>
+             {{ $product->links() }}
+         </div>
     </body>
 </html>
+@endsection

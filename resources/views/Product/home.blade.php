@@ -14,11 +14,11 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    ログインしました!
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class='back'>[<a href='/top'>トップページ→</a>]</div>
+<div class='back'>[<a href='/'>トップページ→</a>]</div>
 @endsection

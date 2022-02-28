@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-  
-  public function products()   
+   public function products()   
   {
     return $this->hasMany('App\Product');  //productに対するリレーション
   }
+ 
 }
