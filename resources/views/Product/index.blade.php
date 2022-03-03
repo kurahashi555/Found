@@ -20,11 +20,11 @@
             @foreach ($product as $products)
                     <p>-----------------------------------------------------</p>
                 　  <a href='/products/{{ $products->id }}'><h2 class='name'>{{ $products->name }}</h2></a>
-                　  <small><a href='/user'>{{ $products->user->name }}</a></small>
+                　  <small><a href='/user/{{ $products->user->id }}'>{{ $products->user->name }}</a></small>
                 　  <p class='photo'>{{ $products->photo }}</p>
                 　  <h5 class='body'>{{ $products->body }}</h5>
-                　 <h6 class='category'>{{ $products->category->id}}</h6>
-                　 <button><a href="/products/{{ $products->id }}/edit">edit</a></button>
+                　  <h6 class='category'>{{ $products->category->id}}</h6>
+                　  <button><a href="/products/{{ $products->id }}/edit">edit</a></button>
              @endforeach
           </div>
           <div class='paginate'>
