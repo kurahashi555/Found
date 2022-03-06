@@ -24,8 +24,8 @@
   　　　    　　@foreach($products as $product)
      　　　　　          <p>-----------------------------------------------------</p>
                 　  <h2 class='name'><a href='/products/{{ $product->id }}'>{{ $product->name }}</a></h2>
-                　  <small>{{ $product->user->name }}</small>
-                　  <p><img  width="300" src="{{ $product->photo }}"></p>
+                　  <small class='user'><a href='/user/{{ $product->user->id }}'>投稿者：{{ $product->user->name }}</a></small>
+                　  <p class='photo'><img  width="300" src="{{ $product->photo }}"></p>
                 　  <h5 class='body'>{{ $product->body }}</h5>
                 　  <h6 class='category'>{{ $product->category->name }}</h6>
                 　  <button><a href="/products/{{ $product->id }}/edit">edit</a></button>
