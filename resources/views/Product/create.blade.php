@@ -15,14 +15,14 @@
                @csrf<!--←必須　POSTの時　Formタグの内側に@csrfというBladeディレクティブを定義、HTML変換する際に自動的に必要なHTMLタグを生成する -->
                 <div class="post">
                     <h2>商品名</h2><br>
-                          <input type="text" name="product[name]" placeholder="商品名"value="{{ old('product.name') }}"autocomplete="off"/><br> 
+                          <input type="text" name="product[name]" placeholder="商品名"value="{{ old('product.name') }}" required autocomplete="off"/><br> 
                           <p class="title__error" style="color:red">{{ $errors->first('product.name') }}</p>
                           <!--エラーメッセージを表示。バリデーションエラーは、$errorsに格納され、View側に返却される。firstは$errorsからメッセージを取り出す関数-->
                     <h2>画像</h2><br>
-                          <input type="file" name="photo" placeholder="写真を添付" value="{{ old('photo') }}"/><br>
+                          <input type="file" name="photo" placeholder="写真を添付" value="{{ old('photo') }}" required /><br>
                           <p class="title__error" style="color:red">{{ $errors->first('photo') }}</p>
                     <h2>評価コメント</h2><br>
-                          <textarea name="product[body]" placeholder="評価コメントを入力">{{ old('product.body') }}</textarea><br>
+                          <textarea name="product[body]" placeholder="評価コメントを入力" required>{{ old('product.body') }}</textarea><br>
                           <p class="title__error" style="color:red">{{ $errors->first('product.body') }}</p>
                     <h2>カテゴリー選択</h2><br>
                           <select name="product[category_id]">
