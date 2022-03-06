@@ -9,8 +9,8 @@ class Product extends Model
 {
   protected $fillable = [
     'name',
-    'photo',
     'body',
+    'photo',
     'category_id',
     'user_id'
     ];
@@ -35,4 +35,5 @@ class Product extends Model
   {
     return $this->belongsTo('App\User');//Userに対するリレーション
   }
+  
 } 

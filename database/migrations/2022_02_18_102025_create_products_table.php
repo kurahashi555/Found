@@ -12,7 +12,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 30);
             $table->string('body', 150);
-            $table->string('photo');
+            $table->string('photo',255);
             $table->timestamps();
             $table->softDeletes();
         });

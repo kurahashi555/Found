@@ -12,16 +12,16 @@
     <body>
     <h1 class="title">編集画面</h1>
        <div class="content">
-           <form action="/products/{{ $product->id }}" method="POST">
+           <form action="/products/{{ $product->id }}" method="POST" enctype="multipart/form-data">
                @csrf
                @method('PUT')
-                 <h2>商品名</h2>
+                 <h3>商品名</h3>
                      <input type='text' name='product[name]' value="{{ $product->name }}"autocomplete="off"><!--autocompleteは自動入力候補表示機能-->
-                 <h2>画像</h2>
-                     <input type='text' name='product[photo]' value="{{ $product->photo }}"autocomplete="off">
-                 <h2>評価コメント</h2>
+                 <h3>画像</h3>
+                     <input type="file" name="photo" value="{{ $product->photo }}">
+                 <h3>評価コメント</h3>
                 　   <textarea name='product[body]'>{{ $product->body }}</textarea>
-                 <h2>カテゴリー選択</h2>
+                 <h3>カテゴリー選択</h3>
                      <select name="product[category_id]">
                   　   　@foreach($categories as $category)
                           <option value="{{ $category->id }}">{{ $category->name }}</option>
