@@ -38,7 +38,7 @@
                  <script>
                     function deletePost()
                     {
-                      'use strict';
+                      'use strict'; 
                            
                        if(confirm('本当に削除しますか？')) 
                        {
