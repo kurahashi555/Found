@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
+         <h6>ユーザー名：{{Auth::user()->name}}</h6>
           <div>
 　　         <h2><a href='/products/create'>投稿</a></h2>
              <h2><a href='/products/search'>検索</a></h2>
