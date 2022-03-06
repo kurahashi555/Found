@@ -6,8 +6,8 @@ use App\User;
 
 class UserController extends Controller
 {
-   public function index(User $user)
+  public function index(User $user)
  {
-    return view('User.index')->with(['own_products' => $user->getOwnPaginateByLimit()]);
- } 
+   return view('User.index')->with(['own_products' => $user->getOwnPaginateByLimit(),'user' => $user]);
+ }
 }

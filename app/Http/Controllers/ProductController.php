@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -56,7 +58,11 @@ class ProductController extends Controller
        空のインスタンスを利用
     */
      $input = $request['product'];//productをキーにもつリクエストパラメータを取得
-     $input += ['user_id' => $request->user()->id];//Userインスタンスのidプロパティを、連想配列形でuser_idのキーに格納。
+     $photo_data = $request->file('photo');
+     $path = Storage::disk('s3')->putFile('foundphoto', $photo_data, 'public');// バケットの`foundphoto`フォルダへ画像をアップロード
+     $photo_data->photo = Storage::disk('s3')->url($path);//アップロードした画像のフルパスを取得
+     $input += ['photo' => $photo_data->photo];//$inputにphotoとして画像のフルパスを格納
+     $input += ['user_id' => $request->user()->id];//Userインスタンスのidプロパティを、$inputにuser_idとして格納。
      $product->fill($input)->save();
      
      return redirect('/');
@@ -73,6 +79,10 @@ class ProductController extends Controller
     public function update(Product $product , ProductRequest $request)
     {
      $input_product = $request['product'];
+     $photo_data = $request->file('photo');
+     $path = Storage::disk('s3')->putFile('foundphoto', $photo_data, 'public');// バケットの`foundphoto`フォルダへ画像をアップロード
+     $photo_data->photo = Storage::disk('s3')->url($path);//アップロードした画像のフルパスを取得
+     $input_product += ['photo' => $photo_data->photo];//$inputにphotoとして画像のフルパスを格納
      $input_product += ['user_id' => $request->user()->id];
      $product->fill($input_product)->save();
      
