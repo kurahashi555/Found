@@ -11,7 +11,7 @@
     </head>
     <body>
           <form action="/store" method="POST" enctype="multipart/form-data">
-               @csrf<!--←必須　POSTの時　Formタグの内側に@csrfというBladeディレクティブを定義、HTML変換する際に自動的に必要なHTMLタグを生成する -->
+               @csrf
                 <div class="post">
                     <h2>商品名</h2><br>
                           <input type="text" name="product[name]" placeholder="商品名"value="{{ old('product.name') }}" required autocomplete="off"/><br> 

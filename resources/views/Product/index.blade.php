@@ -22,7 +22,7 @@
                 　  <small class='user'><a href='/user/{{ $products->user->id }}'>投稿者：{{ $products->user->name }}</a></small>
                  　 <p class='photo'><img  width="300" src="{{ $products->photo }}"></p>
                 　  <h5 class='body'>{{ $products->body }}</h5>
-                　  <h6 class='category'>{{ $products->category->id}}</h6>
+                　  <h6 class='category'>カテゴリー名：{{ $products->category->name}}</h6>
                 　@if( Auth::user()->id === $products->user_id)
        　            <button><a href="/products/{{ $products->id }}/edit">edit</a></button>
        　          @endif
