@@ -10,7 +10,6 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-      <h1>FOUND</h1>
           <form action="/store" method="POST" enctype="multipart/form-data">
                @csrf<!--←必須　POSTの時　Formタグの内側に@csrfというBladeディレクティブを定義、HTML変換する際に自動的に必要なHTMLタグを生成する -->
                 <div class="post">

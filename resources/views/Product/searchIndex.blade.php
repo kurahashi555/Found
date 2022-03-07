@@ -28,7 +28,9 @@
                 　  <p class='photo'><img  width="300" src="{{ $product->photo }}"></p>
                 　  <h5 class='body'>{{ $product->body }}</h5>
                 　  <h6 class='category'>{{ $product->category->name }}</h6>
+                　  @if( Auth::user()->id === $product->user_id)
                 　  <button><a href="/products/{{ $product->id }}/edit">edit</a></button>
+                　  @endif
   　　　　   　　@endforeach
 　　　　　 @endif
 　　　　　</div>

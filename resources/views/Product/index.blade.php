@@ -23,8 +23,10 @@
                  　 <p class='photo'><img  width="300" src="{{ $products->photo }}"></p>
                 　  <h5 class='body'>{{ $products->body }}</h5>
                 　  <h6 class='category'>{{ $products->category->id}}</h6>
-                　  <button><a href="/products/{{ $products->id }}/edit">edit</a></button>
-             @endforeach
+                　@if( Auth::user()->id === $products->user_id)
+       　            <button><a href="/products/{{ $products->id }}/edit">edit</a></button>
+       　          @endif
+       　  　@endforeach   
           </div>
           <div class='paginate'>
              {{ $product->links() }}
