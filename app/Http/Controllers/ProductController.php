@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use App\User;
+use App\Like;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
@@ -14,12 +15,17 @@ class ProductController extends Controller
 {
     public function index(Product $product)
     {
-     return view('Product.index')->with(['product' => $product->getPaginateByLimit()]);
+     return view('Product.index')->with([
+      'product' => $product->getPaginateByLimit(),
+      ]);
     }
     
     public function display(Product $product)
     {
-     return view('Product.display')->with(['product' => $product]);
+     return view('Product.display')->with([
+      'product' => $product,
+      'like' => $like=Like::where('product_id', $product->id)->where('user_id', auth()->user()->id)->first()
+      ]);
     }
     
     public function create(Category $category)

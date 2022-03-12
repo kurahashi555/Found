@@ -22,15 +22,22 @@
         　<div class=searchresult>
         　 @if(isset($products))
   　　　    　　@foreach($products as $product)
+  　　　    　　     <div class=product>
      　　　　　          <p>-----------------------------------------------------</p>
                 　  <h2 class='name'><a href='/products/{{ $product->id }}'>{{ $product->name }}</a></h2>
                 　  <small class='user'><a href='/user/{{ $product->user->id }}'>投稿者：{{ $product->user->name }}</a></small>
                 　  <p class='photo'><img  width="300" src="{{ $product->photo }}"></p>
                 　  <h5 class='body'>{{ $product->body }}</h5>
-                　  <h6 class='category'>カテゴリー名：{{ $product->category->name }}</h6>
+                　  <h6 class='category'>カテゴリー名：{{ $product->category->name }}</h6> 
+                </div>
+                <div class='like'>
+		            いいね {{ $product->likes->count() }}
+                </div>
+                <div class=edit>
                 　  @if( Auth::user()->id === $product->user_id)
                 　  <button><a href="/products/{{ $product->id }}/edit">edit</a></button>
                 　  @endif
+                </div>
   　　　　   　　@endforeach
 　　　　　 @endif
 　　　　　</div>

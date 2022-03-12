@@ -12,16 +12,33 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-          <div>
+        <div class=product>
                <h2 class='name'>{{ $product->name }}</h2>
                <small class='user'>投稿者：{{ $product->user->name }}</small>
                <p class='photo'><img  width="300" src="{{ $product->photo }}"></p>
                <h5 class='body'>{{ $product->body }}</h5>
                <h6 class='category'>カテゴリー名：{{ $product->category->name }}</h6>
-             @if( Auth::user()->id === $product->user_id)
+        </div>
+        <div class=like>
+            @if($like)
+               <!-- ユーザーが「いいね」をしていたら、「いいね」取消用ボタンを表示 -->
+	           <a href="{{ route('unlike', $product->id) }}" class="btn btn-success btn-sm">
+	           <!-- 「いいね」の数を表示 -->
+		        いいね {{ $product->likes->count() }}
+               </a>
+            @else
+               <!-- ユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
+	           <a href="{{ route('like', $product) }}" class="btn btn-secondary btn-sm">
+	           <!-- 「いいね」の数を表示 -->
+		        いいね{{ $product->likes->count() }}
+	           </a>
+            @endif
+        </div>
+        <div class=edit>
+            @if( Auth::user()->id === $product->user_id)
                <p class="edit">[<a href="/products/{{ $product->id }}/edit">edit</a>]</p>
-             @endif
-          </div>
+            @endif
+        </div>
         <div class='back'>[<a href='/'>←Topページ</a>]</div>
     </body>
 </html>

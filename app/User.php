@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
       return $this->hasMany('App\Product'); //productに対するリレーション
     }
+    
+    public function likes()
+    {
+      return $this->hasMany('App\Like');
+    }
 }

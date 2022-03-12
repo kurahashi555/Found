@@ -10,27 +10,35 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-         <h6>ユーザー名：{{Auth::user()->name}}</h6>
-          <div>
+       <h6>ユーザー名：{{Auth::user()->name}}</h6>
+       <div class=function>
 　　         <h2><a href='/products/create'>投稿</a></h2>
-             <h2><a href='/products/search'>検索</a></h2>
-          </div>
-          <div class=product>
+             <h2><a href='/products/search'>投稿検索</a></h2>
+             <h2>カテゴリー検索</h2>
+       </div>
+       <div class=product>
             @foreach ($product as $products)
-                    <p>-----------------------------------------------------</p>
-                　  <h2 class='name'><a href='/products/{{ $products->id }}'>{{ $products->name }}</a></h2>
-                　  <small class='user'><a href='/user/{{ $products->user->id }}'>投稿者：{{ $products->user->name }}</a></small>
-                 　 <p class='photo'><img  width="300" src="{{ $products->photo }}"></p>
-                　  <h5 class='body'>{{ $products->body }}</h5>
-                　  <h6 class='category'>カテゴリー名：{{ $products->category->name}}</h6>
-                　@if( Auth::user()->id === $products->user_id)
-       　            <button><a href="/products/{{ $products->id }}/edit">edit</a></button>
+                <div class=contents>
+                     <p>-----------------------------------------------------</p>
+                　    <h2 class='name'><a href='/products/{{ $products->id }}'>{{ $products->name }}</a></h2>
+                　    <small class='user'><a href='/user/{{ $products->user->id }}'>投稿者：{{ $products->user->name }}</a></small>
+                     <p class='photo'><img  width="300" src="{{ $products->photo }}"></p>
+                　    <h5 class='body'>{{ $products->body }}</h5>
+                　    <h6 class='category'>カテゴリー名：{{ $products->category->name}}</h6>
+                </div>
+                <div class='like'>
+		             いいね {{ $products->likes->count() }}
+                </div>
+                <div class=edit>
+                　@if( Auth::user()->id === $products->user_id  )
+       　             <button><a href="/products/{{ $products->id }}/edit">edit</a></button>
        　          @endif
+       　        </div>
        　  　@endforeach   
-          </div>
-          <div class='paginate'>
+       </div>
+       <div class='paginate'>
              {{ $product->links() }}
-         </div>
+       </div>
     </body>
 </html>
 @endsection
