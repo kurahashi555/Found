@@ -20,5 +20,5 @@
         </div>
     </div>
 </div>
-<div class='back'>[<a href='/'>トップページ→</a>]</div>
+<div class="back">[<a href="/">トップページ→</a>]</div>
 @endsection

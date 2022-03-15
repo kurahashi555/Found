@@ -14,21 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['auth']], function(){
-     Route::get('/', 'ProductController@index');
-     Route::get('/products/like/{product}', 'LikeController@like')->name('like');
-     Route::get('/products/unlike/{product}', 'LikeController@unlike')->name('unlike');
-     Route::get('/products/create', 'ProductController@create');
-     Route::get('/products/search', 'ProductController@search');
-     Route::get('/products/{product}', 'ProductController@display'); 
-     Route::get('/products/{product}/edit', 'ProductController@edit');
-     Route::get('/reference', 'ProductController@reference');
-     Route::get('/categories/{category}', 'ProductController@index');
-     Route::post('/store', 'ProductController@store');
-     Route::put('/products/{product}', 'ProductController@update');
-     Route::delete('/products/{product}', 'ProductController@delete');
-     Route::get('/user/{user}', 'UserController@index')->name('user');
-     Route::get('/user/{user}/url', 'UserController@url');
-     Route::get('/user/{user}/profileEdit', 'UserController@edit');
-     Route::put('/user/{user}', 'UserController@update');
+        Route::get('/', 'ProductController@index');
+     Route::prefix('products')->group(function () {
+        Route::get('/search', 'ProductController@search');
+        Route::get('/reference', 'ProductController@reference');
+        Route::get('/create', 'ProductController@create');
+        Route::post('/store', 'ProductController@store');
+        Route::get('/{product}', 'ProductController@display'); 
+        Route::get('/like/{product}', 'LikeController@like')->name('like');
+        Route::get('/unlike/{product}', 'LikeController@unlike')->name('unlike');
+        Route::get('/categories/{category}', 'ProductController@index');
+        Route::get('/{product}/edit', 'ProductController@edit');
+        Route::put('/{product}', 'ProductController@update');
+        Route::delete('/{product}', 'ProductController@delete');
+     });
+     Route::prefix('user')->group(function () {
+        Route::get('/{user}', 'UserController@index')->name('user');
+        Route::get('/{user}/url', 'UserController@url');
+        Route::get('/{user}/profileEdit', 'UserController@edit');
+        Route::put('/{user}', 'UserController@update');
+     });
   });//ログインしている時のみ実行可能。ログインしてないとログインページにリダイレクトされる
 Auth::routes();

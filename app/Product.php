@@ -7,38 +7,34 @@ use Illuminate\Database\Eloquent\Model;
 Modelクラスのメソッドを参照して利用が可能*/
 class Product extends Model
 {
-  protected $fillable = [
-    'name',
-    'body',
-    'photo',
-    'category_id',
-    'user_id',
-    'photo_type'
-    ];
-     /*クラス変数$fillableを定義.fillが可能なプロパティを指定している
-    「保存ができない」と思った時にfillableを指定していないのはありがちなミス
-    */
+   //クラス変数$fillableを定義.fillが可能なプロパティを指定している
+   protected $fillable = [
+       'name',
+       'body',
+       'photo',
+       'category_id',
+       'user_id',
+       'photo_type'
+   ];
 
-  public function getPaginateByLimit(int $limit_count = 30)
-  {
-    // created_atで降順に並べたあと、limitで件数制限をかける
-    return $this::with('user')->orderBy('created_at', 'DESC')->paginate($limit_count);
-  } /**モデル :: with(リレーション名) の形は、Eagerローディングという機能を使う書き方で、
-     *リレーションによって増えるデータベースアクセスの回数を減らすの機能。
-     */
+   public function getPaginateByLimit(int $limit_count = 30)
+   {
+      // updated_atで降順に並べたあと、limitで件数制限をかける
+     return $this::with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+   } 
 
-  public function category()
-  {
-    return $this->belongsTo('App\Category');
-  }
+   public function category()
+   {
+     return $this->belongsTo('App\Category');
+   }
   
-  public function user()
-  {
-    return $this->belongsTo('App\User');
-  }
+   public function user()
+   {
+     return $this->belongsTo('App\User');
+   }
   
-  public function likes()
-  {
-    return $this->hasMany('App\Like');
-  }
+   public function likes()
+   {
+     return $this->hasMany('App\Like');
+   }
 } 

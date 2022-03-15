@@ -9,30 +9,30 @@ class UserController extends Controller
 {
     public function index(User $user)
     {
-     return view('User.index')->with([
-      'own_products' => $user->getOwnPaginateByLimit(),
-      'user' => $user
-      ]);
+       return view('User.index')->with([
+           'own_products' => $user->getOwnPaginateByLimit(),
+           'user' => $user
+       ]);
     }
  
     public function edit(User $user)
     {
-     return view('User.edit')->with([
-      'user' => $user
-      ]);
+       return view('User.edit')->with([
+           'user' => $user
+       ]);
     }
     
     public function update(User $user , UserRequest $request)
     {
-     $input_profile = $request['user'];
-     $user->fill($input_profile)->save();
+       $input_profile = $request['user'];
+       $user->fill($input_profile)->save();
      
-     return redirect()->route('user',[$user]);
+       return redirect()->route('user',[$user]);
     }
     
     public function url(User $user , UserRequest $request)
     {
-     return redirect()->away($user->web_url);
+       return redirect()->away($user->web_url);
     }
     
 }
