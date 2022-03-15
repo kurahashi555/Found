@@ -26,6 +26,9 @@ Route::group(['middleware' => ['auth']], function(){
      Route::post('/store', 'ProductController@store');
      Route::put('/products/{product}', 'ProductController@update');
      Route::delete('/products/{product}', 'ProductController@delete');
-     Route::get('/user/{user}', 'UserController@index');
+     Route::get('/user/{user}', 'UserController@index')->name('user');
+     Route::get('/user/{user}/url', 'UserController@url');
+     Route::get('/user/{user}/profileEdit', 'UserController@edit');
+     Route::put('/user/{user}', 'UserController@update');
   });//ログインしている時のみ実行可能。ログインしてないとログインページにリダイレクトされる
 Auth::routes();

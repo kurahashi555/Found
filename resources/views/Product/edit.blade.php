@@ -10,15 +10,15 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-    <h1 class="title">編集画面</h1>
+    <h1 class="title">投稿編集</h1>
        <div class="content">
            <form action="/products/{{ $product->id }}" method="POST" enctype="multipart/form-data">
                @csrf
-               @method('PUT')
+               @method("PUT")
                  <h3>商品名</h3>
                      <input type='text' name='product[name]' value="{{ $product->name }}"autocomplete="off"><!--autocompleteは自動入力候補表示機能-->
-                 <h3>画像</h3>
-                     <input type="file" name="photo" value="{{ $product->photo }}">
+                 <h3>画像<small>（※もう一度画像を選択してください）</small></h3>
+                     <input type="file" name="photo" value="{{ $product->photo_type }}">
                  <h3>評価コメント</h3>
                 　   <textarea name='product[body]'>{{ $product->body }}</textarea>
                  <h3>カテゴリー選択</h3>

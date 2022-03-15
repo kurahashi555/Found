@@ -65,7 +65,7 @@ class ProductController extends Controller
     */
      $input = $request['product'];//productをキーにもつリクエストパラメータを取得
      $photo_data = $request->file('photo');
-     $path = Storage::disk('s3')->putFile('foundphoto', $photo_data, 'public');// バケットの`foundphoto`フォルダへ画像をアップロード.
+     $path = Storage::disk('s3')->putFile('foundphoto', $photo_data, 'public');// バケットの`foundphoto`フォルダへ画像をアップロード
      $photo_data->photo = Storage::disk('s3')->url($path);//アップロードした画像のフルパスを取得
      $input += ['photo' => $photo_data->photo];//$inputにphotoとして画像のフルパスを格納
      $input += ['user_id' => $request->user()->id];//Userインスタンスのidプロパティを、$inputにuser_idとして格納。

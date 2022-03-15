@@ -12,7 +12,8 @@ class Product extends Model
     'body',
     'photo',
     'category_id',
-    'user_id'
+    'user_id',
+    'photo_type'
     ];
      /*クラス変数$fillableを定義.fillが可能なプロパティを指定している
     「保存ができない」と思った時にfillableを指定していないのはありがちなミス
