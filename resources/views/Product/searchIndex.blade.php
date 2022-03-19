@@ -14,7 +14,8 @@
 　　　 <div class="function">
 　　　　　 <a href="/products/create"><h2>投稿</h2></a>
            <a href="/products/search"><h2>検索</h2></a>
-           <div class="back">[<a href="/">←Topページ</a>]</div>
+           <h2><a href='/products/category'>カテゴリー検索</a></h2>
+       <div class="back">[<a href="/">←Topページ</a>]</div>
        </div>
         　  @if(!empty($message)) <!--$messageが空じゃなければ実行-->
 　　　　　　   <div>{{ $message}}</div>
@@ -28,7 +29,7 @@
                  　       <small class="user"><a href="/user/{{ $product->user->id }}">投稿者：{{ $product->user->name }}</a></small>
                  　       <p class="photo"><img  width="300" src="{{ $product->photo }}"></p>
                  　       <h5 class="body">{{ $product->body }}</h5>
-                 　       <h6 class="category">カテゴリー名：{{ $product->category->name }}</h6> 
+                 　       <a href='/products/category/{{ $product->category->id }}'>カテゴリー名：{{ $product->category->name }}</a>
                     </div>
                     <div class="like">
 		                 いいね {{ $product->likes->count() }}

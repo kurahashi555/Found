@@ -16,8 +16,10 @@
 　　        <h2><a href='/products/create'>投稿</a></h2>
             <h2><a href='/products/search'>投稿検索</a></h2>
             <h2><a href='/products/category'>カテゴリー検索</a></h2>
+       <div class="back">[<a href="/">←Topページ</a>]</div>
        </div>
        <div class="product">
+            <h6>カテゴリー名「{{ $category->name }}」で絞り込みました。</h6>
             @foreach($product as $products)
                <div class="contents">
                     <p>-----------------------------------------------------</p>

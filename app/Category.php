@@ -10,4 +10,9 @@ class Category extends Model
    {
      return $this->hasMany('App\Product');
    }
+   
+   public function getByCategory(int $limit_count = 30)
+   {
+     return $this->products()->with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+   }
 }

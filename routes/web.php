@@ -18,12 +18,14 @@ Route::group(['middleware' => ['auth']], function(){
      Route::prefix('products')->group(function () {
         Route::get('/search', 'ProductController@search');
         Route::get('/reference', 'ProductController@reference');
+        Route::get('/category', 'CategoryController@search');
+        Route::get('/category/reference', 'CategoryController@reference');
+        Route::get('/category/{category}', 'CategoryController@index')->name('category');
         Route::get('/create', 'ProductController@create');
         Route::post('/store', 'ProductController@store');
         Route::get('/{product}', 'ProductController@display'); 
         Route::get('/like/{product}', 'LikeController@like')->name('like');
         Route::get('/unlike/{product}', 'LikeController@unlike')->name('unlike');
-        Route::get('/categories/{category}', 'ProductController@index');
         Route::get('/{product}/edit', 'ProductController@edit');
         Route::put('/{product}', 'ProductController@update');
         Route::delete('/{product}', 'ProductController@delete');

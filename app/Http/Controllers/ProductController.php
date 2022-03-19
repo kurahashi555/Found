@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Storage;
 class ProductController extends Controller
 {
  
- 
     public function index(Product $product)
     {
        return view('Product.index')->with([

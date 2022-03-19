@@ -17,7 +17,7 @@
             <small class="user">投稿者：{{ $product->user->name }}</small>
             <p class="photo"><img  width="300" src="{{ $product->photo }}"></p>
             <h5 class="body">{{ $product->body }}</h5>
-            <h6 class="category">カテゴリー名：{{ $product->category->name }}</h6>
+            <a href='/products/category/{{ $product->category->id }}'>カテゴリー名：{{ $product->category->name }}</a>
        </div>
        <div class="like">
             @if($like)
