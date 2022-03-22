@@ -93,7 +93,7 @@ class ProductController extends Controller
        $photo_data = $request->file('photo');
        $path = Storage::disk('s3')->putFile('foundphoto', $photo_data, 'public');// バケットの`foundphoto`フォルダへ画像をアップロード
        $photo_data->photo = Storage::disk('s3')->url($path);//アップロードした画像のフルパスを取得
-       $input_product += ['photo' => $photo_data->photo];//$inputにphotoとして画像のフルパスを格納
+       $input_product += ['photo' => $photo_data->photo];//$inputにphotoとして画像のフルパスを格
        $input_product += ['user_id' => $request->user()->id];
        $product->fill($input_product)->save();
      

@@ -40,7 +40,7 @@
                      {
                        'use strict'; 
                            
-                        if(confirm('本当に削除しますか？')) 
+                        if(confirm('本当に削除しますか？'))
                         {
                           document.getElementById('form_delete').submit();
                         }
@@ -48,7 +48,7 @@
                   </script>
             </form>
        </div>
-       <div class="back">[<a href="/">トップページ→</a>]</div>
+       <div class="back">[<a href="/">編集せずに戻る→</a>]</div>
     </body>
 </html>
 @endsection
