@@ -8,7 +8,7 @@ class UserRequest extends FormRequest
 {
     public function rules()
     {
-        //rulesという関数で返却する配列にバリデーションを適用するルール.データ保存時のエラー表示の基準
+        //rulesという関数で返却する配列にバリデーションを適用するルール.データ保存時のエラー表示
         return [
             'user.profile' => 'string|max:160',
             'use.web_url' => 'string',

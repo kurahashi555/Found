@@ -1,3 +1,20 @@
+## About Found
+
+[ ここでしか出会えない商品を見つけることができる ] というコンセプトから、
+「見つけた」という英単語のfoundを名前にしました。
+
+**使用技術**
+- AWS Cloud9,S3 
+- Laravel 
+- PHP
+- HTML
+- CSS
+- Heroku
+
+**今後追加したい機能**
+- フォロー機能
+- ダイレクトメッセージ機能
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
