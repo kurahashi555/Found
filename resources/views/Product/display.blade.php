@@ -34,6 +34,23 @@
 	           </a>
             @endif
        </div>
+       <div class="stock">
+            @if( Auth::user()->id === $product->user_id)
+               @if($stock)
+                  <!-- ユーザーが「いいね」をしていたら、「いいね」取消用ボタンを表示 -->
+	              <a href="{{ route('sold', $product->id) }}" class="btn btn-secondary btn-sm">
+	              <!-- 「いいね」の数を表示 -->
+		          売り切れ
+                  </a>
+               @else
+                  <!-- ユーザーが「いいね」をしていなければ、「販売中」を表示 -->
+	              <a href="{{ route('sale', $product) }}" class="btn btn-success btn-sm">
+	              <!-- 「いいね」の数を表示 -->
+		          販売中
+	              </a>
+               @endif
+            @endif
+       </div>
        <div class="edit">
             @if( Auth::user()->id === $product->user_id)
                <p class="edit">[<a href="/products/{{ $product->id }}/edit">編集</a>]</p>

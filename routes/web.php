@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['auth']], function(){
-        Route::get('/', 'ProductController@index');
-     Route::prefix('products')->group(function () {
+    Route::get('/', 'ProductController@index');
+    Route::prefix('products')->group(function () {
         Route::get('/search', 'ProductController@search');
         Route::get('/reference', 'ProductController@reference');
         Route::get('/category', 'CategoryController@search');
@@ -24,6 +24,8 @@ Route::group(['middleware' => ['auth']], function(){
         Route::get('/create', 'ProductController@create');
         Route::post('/store', 'ProductController@store');
         Route::get('/{product}', 'ProductController@display'); 
+        Route::get('/sale/{product}', 'StockController@sale')->name('sale');
+        Route::get('/sold/{product}', 'StockController@sold')->name('sold');
         Route::get('/like/{product}', 'LikeController@like')->name('like');
         Route::get('/unlike/{product}', 'LikeController@unlike')->name('unlike');
         Route::get('/{product}/edit', 'ProductController@edit');

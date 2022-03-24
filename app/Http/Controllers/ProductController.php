@@ -6,6 +6,7 @@ use App\Product;
 use App\Category;
 use App\User;
 use App\Like;
+use App\Stock;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
@@ -14,24 +15,26 @@ use Illuminate\Support\Facades\Storage;
 class ProductController extends Controller
 {
  
-    public function index(Product $product)
+    public function index(Product $product , Stock $stock)
     {
        return view('Product.index')->with([
           'product' => $product->getPaginateByLimit(),
+          'stock' => $stock = Product::with('stock')->get(),
        ]);
     }
-    
+ 
     public function display(Product $product)
     {
        return view('Product.display')->with([
           'product' => $product,
-          'like' => $like=Like::where('product_id', $product->id)->where('user_id', auth()->user()->id)->first()
+          'like' => $like=Like::where('product_id', $product->id)->where('user_id', auth()->user()->id)->first(),
+          'stock' => $stock=Stock::where('product_id', $product->id)->where('user_id', auth()->user()->id)->first(),
        ]);
     }
     
     public function create(Category $category)
     {
-       return view('Product.create')->with(['categories' => $category->get()]);;
+       return view('Product.create')->with(['categories' => $category->get()]);
     }
     
     public function search()
@@ -47,11 +50,11 @@ class ProductController extends Controller
        if($keyword_request !== null){
            $query = Product::query();
            //productのnameカラムに$keyword_requestと同じ文字が入っているものを取得
-           $products = $query->where('name','like', '%' .$keyword_request. '%')->get();
+           $product = $query->where('name','like', '%' .$keyword_request. '%')->get();
            $message= "「". $keyword_request."」を含む名前の検索が完了しました。";
            
            return view('Product.searchIndex')->with([
-               'products' => $products,
+               'product' => $product,
                'message' => $message,
            ]);
        }

@@ -27,6 +27,13 @@
               　     <h5 class="body">{{ $products->body }}</h5>
               　     <a href='/products/category/{{ $products->category->id }}'>カテゴリー名：{{ $products->category->name }}</a>
                </div>
+               <div class="stock">
+                    @if($products->stock)
+		               売り切れ
+                    @else
+		               販売中
+                    @endif
+               </div>
                <div class="like">
                     いいね {{ $products->likes->count() }}
                </div>
