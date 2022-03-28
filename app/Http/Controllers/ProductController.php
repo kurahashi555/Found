@@ -110,4 +110,9 @@ class ProductController extends Controller
        
        return redirect('/');
     }
+    
+    public function about()
+    {
+       return view('Product.about');
+    }
 }

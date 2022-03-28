@@ -39,4 +39,5 @@ Route::group(['middleware' => ['auth']], function(){
         Route::put('/{user}', 'UserController@update');
      });
   });//ログインしている時のみ実行可能。ログインしてないとログインページにリダイレクトされる
+Route::get('/about', 'ProductController@about');
 Auth::routes();
